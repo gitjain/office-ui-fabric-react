@@ -396,7 +396,7 @@ export class BasePicker<T, P extends IBasePickerProps<T>> extends BaseComponent<
 
   private _getTextFromItem(item: T, currentValue?: string): string {
     if (this.props.getTextFromItem) {
-      return this.props.getTextFromItem(item, currentValue);
+      return this.props.getTextFromItem(item, currentValue) || '';
     } else {
       return '';
     }
