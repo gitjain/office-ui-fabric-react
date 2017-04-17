@@ -5,8 +5,8 @@ import * as React from 'react';
 export default class TooltipVPage extends React.Component<any, any> {
   public render() {
     return <div >
-      <TooltipHost id='Tooltip' content='This is the tooltip'>Hover over me
-      </TooltipHost>
+      <Tooltip id='Tooltip' content='This is the tooltip'>Hover over me
+      </Tooltip>
     </div>;
   }
 }
