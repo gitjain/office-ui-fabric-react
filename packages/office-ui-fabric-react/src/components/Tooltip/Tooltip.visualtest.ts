@@ -13,15 +13,6 @@ casper.
   }).then(function () {
     this.mouse.down('#Tooltip');
     phantomcss.screenshot('#Tooltip', 'Tooltip_pressed');
-  }).
-  then(function () {
-    phantomcss.screenshot('#TooltipDisabled', 'TooltipDisabled_not_pressed');
-  }).then(function () {
-    this.mouse.move('#TooltipDisabled');
-    phantomcss.screenshot('#TooltipDisabled', 'TooltipDisabled_hovered');
-  }).then(function () {
-    this.mouse.down('#TooltipDisabled');
-    phantomcss.screenshot('#TooltipDisabled', 'TooltipDisabled_pressed');
   });
 casper.run(function () { casper.test.done(); });
 /* tslint:enable:no-function-expression */
