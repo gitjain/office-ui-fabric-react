@@ -1,13 +1,8 @@
-import { EventLayer, ScreenEvent, FileExtn } from './RunVisualTest';
-import { IdType } from './RunVisualTest'
-import { RunVisualTest } from './RunVisualTest';
 
 export interface IRunVisualTest {
-
-  componentId: string;
-  componentIdType;
-  eventType: EventLayer;
-  eventList: ScreenEvent[];
-  secondLayer?: RunVisualTest;
-
+  selector: string;
+  fileName: string;
+  imageSelector?: string;
+  commands: ((params: IRunVisualTest) => void)[];
+  childParams?: IRunVisualTest;
 }

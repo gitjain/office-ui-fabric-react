@@ -1,42 +1,37 @@
 import { Casper } from '../../visualtest/PhantomCssInterface';
 import { baseUrl } from '../../common/VisualTest';
-import { RunVisualTest } from '../../visualtest/RunVisualTest';
-import { IdType, ScreenEvent, EventLayer } from '../../visualtest/RunVisualTest';
+import { defaultScreenshot, mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot, testRunner } from '../../visualtest/RunVisualTest';
+import { IRunVisualTest } from '../../visualtest/IRunVisualTest';
 
 declare var casper: Casper;
 
-let componentIds = [];
-let pngEventList = [ScreenEvent.DEFAULT, ScreenEvent.DOWN, ScreenEvent.HOVERED, ScreenEvent.DOUBLECLICK];
+let componentIds: IRunVisualTest[] = [];
 
-componentIds.push(new RunVisualTest({
-  componentId: 'ChoiceGroup',
-  componentIdType: IdType.CLASSNAME,
-  eventType: EventLayer.SINGLE,
-  eventList: pngEventList
-}));
+componentIds.push({
+  selector: '.' + 'ms-ChoiceField-field',
+  fileName: 'choiceGroup',
+  imageSelector: '.' + 'ChoiceGroup',
+  commands: [defaultScreenshot, mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot]
+});
 
-componentIds.push(new RunVisualTest({
-  componentId: 'ChoiceGroupDisabled',
-  componentIdType: IdType.CLASSNAME,
-  eventType: EventLayer.SINGLE,
-  eventList: pngEventList
-}));
+componentIds.push({
+  selector: '.' + 'ms-ChoiceField-field',
+  fileName: 'choiceGroupDisabled',
+  imageSelector: '.' + 'ChoiceGroup',
+  commands: [defaultScreenshot]
+});
 
-componentIds.push(new RunVisualTest({
-  componentId: 'ChoiceGroupIcon',
-  componentIdType: IdType.CLASSNAME,
-  eventType: EventLayer.SINGLE,
-  eventList: pngEventList
-}));
+componentIds.push({
+  selector: '.' + 'ms-ChoiceField',
+  fileName: 'choiceGroupIcon',
+  imageSelector: '.' + 'ChoiceGroupIcon',
+  commands: [defaultScreenshot, mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot]
+});
 
-// /* tslint:disable:no-function-expression */
 casper.
   start(baseUrl + 'choiceGroup').
-  then(function () {
-    componentIds.map(function (test) {
-      test.runCasper();
-    });
+  then(() => {
+    testRunner(componentIds);
   });
 
-casper.run(function () { casper.test.done(); });
-// /* tslint:enable:no-function-expression */
+casper.run(() => { casper.test.done(); });

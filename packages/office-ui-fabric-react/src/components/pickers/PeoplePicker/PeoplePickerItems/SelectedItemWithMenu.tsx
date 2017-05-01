@@ -7,7 +7,8 @@ import { Persona, PersonaPresence } from '../../../../Persona';
 import { ContextualMenu, DirectionalHint } from '../../../../ContextualMenu';
 import { IconButton } from '../../../../Button';
 import { FocusZone } from '../../../../FocusZone';
-import styles = require('./PickerItemsDefault.scss');
+import * as stylesImport from './PickerItemsDefault.scss';
+const styles: any = stylesImport;
 
 export interface IPeoplePickerItemState {
   contextualMenuVisible: boolean;
@@ -42,13 +43,13 @@ export class SelectedItemWithMenu extends BaseComponent<IPeoplePickerItemWithMen
           </div>
           <div ref='ellipsisRef' className={ css('ms-PickerItem-content', styles.itemContent) }>
             <IconButton
-              icon={ 'More' }
+              iconProps={ { iconName: 'More' } }
               onClick={ this.onContextualMenu }
             />
           </div>
           <div className={ css('ms-PickerItem-content', styles.itemContent) }>
             <IconButton
-              icon={ 'Cancel' }
+              iconProps={ { iconName: 'Cancel' } }
               onClick={ onRemoveItem }
             />
           </div>
