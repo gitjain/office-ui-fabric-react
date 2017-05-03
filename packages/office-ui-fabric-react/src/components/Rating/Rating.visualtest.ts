@@ -6,21 +6,32 @@ declare var casper: Casper;
 let componentIds: IRunVisualTest[] = [];
 
 componentIds.push({
+  selector: '.' + 'Rating',
+  fileName: 'rating',
+  commands: [defaultScreenshot]
+});
+
+componentIds.push({
+  selector: '.' + 'RatingLarge',
+  fileName: 'ratingLarge',
+  commands: [defaultScreenshot]
+});
+
+componentIds.push({
   selector: '.' + 'ms-Rating-star',
   imageSelector: '.' + 'Rating',
   fileName: 'rating',
-
-  commands: [defaultScreenshot, mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot]
+  commands: [mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot]
 });
+
 componentIds.push({
   selector: '.' + 'ms-Rating-star',
   imageSelector: '.' + 'RatingLarge',
   fileName: 'ratingLarge',
-  commands: [defaultScreenshot, mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot]
+  commands: [mouseMoveScreenshot, mouseDownScreenshot, mouseClickScreenshot]
 });
 componentIds.push({
-  selector: '.' + 'ms-Rating-star',
-  imageSelector: '.' + 'RatingDisabled',
+  selector: '.' + 'RatingDisabled',
   fileName: 'ratingDisabled',
   commands: [defaultScreenshot]
 });

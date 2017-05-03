@@ -6,7 +6,7 @@ import * as React from 'react';
 export default class ProgressIndicatorVPage extends React.Component<any, any> {
   public render() {
     return <div >
-      <div> <ProgressIndicator
+      <div style={ { width: '600px' } }> <ProgressIndicator
         className='ProgressIndicator'
         percentComplete={ 50 }
       /></div>&nbsp;
