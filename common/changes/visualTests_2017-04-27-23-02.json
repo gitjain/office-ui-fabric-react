@@ -2,6 +2,7 @@
   "changes": [
     {
       "packageName": "office-ui-fabric-react",
+<<<<<<< HEAD
       "comment": "Regression Tests",
       "type": "patch"
     },
@@ -23,3 +24,11 @@
   ],
   "email": "r33najain@gmail.com"
 }
+=======
+      "comment": "Facepile: Added `className` prop.",
+      "type": "minor"
+    }
+  ],
+  "email": "r33najain@gmail.com"
+}
+>>>>>>> 20fa5efe21f0be39f604fb3a7bdb12c83fdcbe53
