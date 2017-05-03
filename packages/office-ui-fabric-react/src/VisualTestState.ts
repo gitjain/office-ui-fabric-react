@@ -4,13 +4,22 @@ export interface IVisualTestState {
 
 export const VisualTestState: IVisualTestState = {
   componentPath: [
-    './Button/CommandButtonPage.visualtest',
-    './Button/CompoundButtonPage.visualtest',
-    './Button/ContextualButtonPage.visualtest',
-    './Button/DefaultButtonPage.visualtest',
-    './Button/PrimaryButtonPage.visualtest',
+    './Breadcrumb/BreadcrumbPage.visualtest',
+    './Button/ButtonPage.visualtest',
     './Checkbox/CheckboxPage.visualtest',
     './ChoiceGroup/ChoiceGroupPage.visualtest',
+<<<<<<< HEAD
 
+=======
+    './CommandBar/CommandBarPage.visualtest',
+    './ContextualMenu/ContextualMenuPage.visualtest',
+    './DetailsList/DetailsListPage.visualtest',
+    './Label/LabelPage.visualtest',
+    './DocumentCard/DocumentCardPage.visualtest',
+    './Dialog/DialogPage.visualtest',
+    './Facepile/FacepilePage.visualtest',
+    './Toggle/TogglePage.visualtest',
+    './Tooltip/TooltipPage.visualtest'
+>>>>>>> 20fa5efe21f0be39f604fb3a7bdb12c83fdcbe53
   ]
 };

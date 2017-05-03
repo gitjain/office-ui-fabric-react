@@ -1,5 +1,6 @@
 
 import { Casper, IPhantomCSS } from './PhantomCssInterface';
+<<<<<<< HEAD
 import { baseUrl } from '../common/VisualTest';
 import { Enum } from "typescript-string-enums";
 import { IRunVisualTest } from './IRunVisualTest';
@@ -131,3 +132,85 @@ export class RunVisualTest {
   }
 }
 
+=======
+import { IRunVisualTest } from './IRunVisualTest';
+declare var phantomcss: IPhantomCSS;
+declare var casper: Casper;
+
+export function defaultScreenshot(params: IRunVisualTest) {
+  params.imageSelector = params.imageSelector || params.selector;
+
+  casper.then(() => {
+    phantomcss.screenshot(params.imageSelector, params.fileName + '_default');
+  });
+  if (params.childParams) {
+    params.childParams.commands.forEach(commandList => {
+      commandList(params.childParams);
+    });
+  }
+}
+
+export function mouseMoveScreenshot(params: IRunVisualTest) {
+  params.imageSelector = params.imageSelector || params.selector;
+
+  casper.then(function () {
+    this.mouse.move(params.selector);
+    phantomcss.screenshot(params.imageSelector, params.fileName + '_mouseMove');
+  });
+  if (params.childParams) {
+    params.childParams.commands.forEach(commandList => {
+      commandList(params.childParams);
+    });
+  }
+}
+
+export function mouseDownScreenshot(params: IRunVisualTest) {
+  params.imageSelector = params.imageSelector || params.selector;
+
+  casper.then(function () {
+    this.mouse.down(params.selector);
+    phantomcss.screenshot(params.imageSelector, params.fileName + '_mouseDown');
+  });
+  if (params.childParams) {
+    params.childParams.commands.forEach(commandList => {
+      commandList(params.childParams);
+    });
+  }
+}
+export function mouseClickScreenshot(params: IRunVisualTest) {
+  params.imageSelector = params.imageSelector || params.selector;
+
+  casper.then(function () {
+    this.click(params.selector);
+    phantomcss.screenshot(params.imageSelector, params.fileName + '_mouseClick');
+  });
+  casper.then(function () {
+    this.click(params.selector);
+  });
+  if (params.childParams) {
+    params.childParams.commands.forEach(commandList => {
+      commandList(params.childParams);
+    });
+  }
+}
+
+export function mouseSingleClickScreenshot(params: IRunVisualTest) {
+  params.imageSelector = params.imageSelector || params.selector;
+
+  casper.then(function () {
+    this.click(params.selector);
+  });
+  if (params.childParams) {
+    params.childParams.commands.forEach(commandList => {
+      commandList(params.childParams);
+    });
+  }
+}
+export function testRunner(componentIds: IRunVisualTest[]) {
+  componentIds.forEach(element => {
+    element.commands.forEach(command => {
+      command(element);
+    });
+  });
+}
+>>>>>>> 20fa5efe21f0be39f604fb3a7bdb12c83fdcbe53
